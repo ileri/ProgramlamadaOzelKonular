@@ -1,9 +1,9 @@
 # Programlamada Özel Konular Kütüphane Kodları
 
-Bu repo, Ondokuz Mayıs Üniversitesi Bilgisayar Mühendisliği Programlamada Özel
-Konular dersi kapsamında dönem boyunca labaratuvarda yazılan kod örnekleri ve
-bu örneklere konudan fazla uzaklaşmadan şahsım tarafından yapılabilecek ekleme
-veya düzenlemeleri içermektedir.
+Bu repo, **Ondokuz Mayıs Üniversitesi** (OMÜ) **Bilgisayar Mühendisliği**
+lisans programı *Programlamada Özel Konular* dersi kapsamında dönem boyunca
+labaratuvarda yazılan kod örnekleri ve bu örneklere konudan fazla uzaklaşmadan
+şahsım tarafından yapılabilecek ekleme veya düzenlemeleri içermektedir.
 
 ## Genel Yapı
 
@@ -28,13 +28,13 @@ ileriki aşamalarda alt bir dizine taşınması söz konusu olabilir.
 
 ### Projenin Derlenmesi
 
-Proje, Makefile içermekte olup tek komut ile derlenebilmektedir.
+Proje, **Makefile** içermekte olup, tek komut ile derlenebilmektedir.
+
+Aşağıdaki komutu kullanarak projeyi derleyebilirsiniz.
 
 ~~~sh
 make
 ~~~
-
-Yukarıdaki komutu kullanarak projeyi derleyebilirsiniz.
 
 Proje derlendiğinde **mattest** isimli bir çalıştırılabilir derlenmiş ikili
 dosya oluşacaktır.
@@ -45,14 +45,12 @@ Bu dosyayı da aşağıdaki komut ile çalıştırabilirsiniz.
 ./mattest
 ~~~
 
-
-Yada daha kısa bir yol olarak, hem derleyip hem çalıştırmak için
+Yada daha kısa bir yol olarak, hem derleyip hem çalıştırmak için aşağıdaki
+komutu kullanabilirsiniz.
 
 ~~~sh
 make run
 ~~~
-
-komutunu kullanabilirsiniz.
 
 Projedeki derlenmiş obje ve kütüphane dosyaları ve çalıştırılabilir dosyaları
 temizlemek için ise aşağıdaki konutu kullanabilirsiniz.
@@ -60,3 +58,7 @@ temizlemek için ise aşağıdaki konutu kullanabilirsiniz.
 ~~~sh
 make clean
 ~~~
+
+## Katkıda Bulunanlar
+
+[@ileri](https://github.com/ileri) - Serhat Celil İLERİ
