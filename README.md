@@ -1,7 +1,10 @@
-# Programlamada Özel Konular Kütüphane Kodları
+# Programlamada Özel Konular Dersi Kütüphane Kodları
+
+[![OMÜ CEng](https://img.shields.io/badge/OM%C3%9C-CEng-blue.svg)](http://bil.muhendislik.omu.edu.tr)
+
 
 Bu repo, **Ondokuz Mayıs Üniversitesi** (OMÜ) **Bilgisayar Mühendisliği**
-lisans programı *Programlamada Özel Konular* dersi kapsamında dönem boyunca
+lisans programı **Programlamada Özel Konular** dersi kapsamında dönem boyunca
 labaratuvarda yazılan kod örnekleri ve bu örneklere konudan fazla uzaklaşmadan
 şahsım tarafından yapılabilecek ekleme veya düzenlemeleri içermektedir.
 
