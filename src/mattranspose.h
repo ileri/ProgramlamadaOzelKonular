@@ -1,0 +1,1 @@
+int matrix_transpose(int *output_matrix, int *input_matrix, int row_count, int col_count);
