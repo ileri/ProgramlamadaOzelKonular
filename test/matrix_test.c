@@ -2,11 +2,67 @@
 #include <x86intrin.h>
 #include "../src/matarith.h"
 #include "../src/mattranspose.h"
+#include "../src/fastfibo.h"
 
 #define NRUN 100
 #define N    10
+#define max(a,b) (a>b)? a:b
+#define fib(n) ({unsigned long long f[2] = {1,1};for(int i = 3; i <= n; i++){f[1] = f[0]+f[1];f[0]=f[1]-f[0];};f[1];})
 
 typedef int mat[N*N] __attribute__((aligned(32)));
+
+#pragma pack(4)
+typedef struct
+{
+  // pragma pack(1)
+  // | 1 | (char)
+  // | 1 | (int 1)
+  // | 2 | (int 2)
+  //  . . . 
+
+  // pragma pack(2)
+  // | 1 | 2 | (char)
+  // | 1 | 2 | (int 1)
+  // | 3 | 4 | (int 2)
+  // . . . 
+
+  // pragma pack(4)
+  // | 1 | 2 | 3 | 4 | (char)
+  // | 1 | 2 | 3 | 4 | (int)
+  // | 1 | 2 | 3 | 4 | (long long int 1)
+  // | 5 | 6 | 7 | 8 | (long long int 2)
+  // . . .
+
+  char c;          // | 1 |   |   |   |   |   |   |   |
+  char c1;         // | 1 |
+  char c2;         // | 1 |
+  char c3;         // | 1 |
+  char c4;         // | 1 |
+
+  int a;           // | 1 | 2 | 3 | 4 |   |   |   |   |
+  long long int b; // | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+
+}uni_t, *uni[1];
+
+
+//void basla(void) __attribute__((constructor)); // Programın başında main'den önce çalıştır.
+//void bitir(void) __attribute__((destructor)); // Programın sonunda main'den çıkınca çalıştır.
+
+__attribute__((constructor (64))) void basla(void); // Programın başında main'den önce çalıştır.
+__attribute__((constructor (65))) void baslayabilir_misin(void); // Programın başında main'den önce çalıştır.
+__attribute__((destructor)) void bitir(void); // Programın sonunda main'den çıkınca çalıştır.s
+
+void basla(void) {
+  printf("Bana emir verme.\n");
+}
+
+void baslayabilir_misin(void){
+  printf("Tamamdır, Program başladı.\n");
+}
+
+void bitir(void){
+  printf("Program bitti.\n");
+}
 
 int matrix_compare(const int* m1, const int* m2, int row_count, int col_count)
 {
@@ -87,8 +143,18 @@ void generate_matrix(int* m, int row_count, int col_count)
   }
 }
 
+static inline unsigned long long __fibo__(int n){
+  unsigned long long f[2] = {1,1};
+  for(int i = 3; i <= n; i++){f[1] = f[0]+f[1];f[0]=f[1]-f[0];}
+  return f[1];
+}
+
 int main(void)
 {
+  uni_t a1;
+  uni b1;
+  printf("sizeof(a1) = %d \t sizeof(b1) = %d\n", sizeof(a1), sizeof(b1));
+
   int i;
 
   int m1_row_count = N;
@@ -156,6 +222,10 @@ int main(void)
 
   printf("Transposed Matrix:\n");
   print_matrix(m8, m1_col_count, m2_row_count);
+
+
+  int a[] = {1, 1, 2, 3};
+  printf("Fib: %lld\nFibo: %lld\nFibonacci: %lld\n", fib(50), fibo(50), __fibo__(50));
 
   return 0;
 }

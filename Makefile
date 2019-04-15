@@ -1,7 +1,7 @@
-CC = gcc
+CC = gcc -std=c11 -Wall
 AR = ar rcs     # Kütüphane haline getir
 RANLIB = ranlib # Sıkıştır
-OBJ = src/matarith.o src/mattranspose.o
+OBJ = src/mattranspose.o src/fastfibo.o src/matarith.o 
 EXEC = mattest
 all: lib test
 
@@ -19,4 +19,4 @@ run: lib test
 	./$(EXEC)
 
 clean:
-	@rm -f src/*.o src/*.a mattest
+	@rm -f src/*.o src/*.a $(EXEC)
