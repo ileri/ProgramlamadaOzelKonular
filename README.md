@@ -65,3 +65,4 @@ make clean
 ## Katkıda Bulunanlar
 
 [@ileri](https://github.com/ileri) - Serhat Celil İLERİ
+[@simgesen](https://github.com/simgesen) - Simge ŞEN
