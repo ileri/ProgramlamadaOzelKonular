@@ -48,8 +48,8 @@ typedef struct
 //void basla(void) __attribute__((constructor)); // Programın başında main'den önce çalıştır.
 //void bitir(void) __attribute__((destructor)); // Programın sonunda main'den çıkınca çalıştır.
 
-__attribute__((constructor (64))) void basla(void); // Programın başında main'den önce çalıştır.
-__attribute__((constructor (65))) void baslayabilir_misin(void); // Programın başında main'den önce çalıştır.
+__attribute__((constructor (101))) void basla(void); // Programın başında main'den önce çalıştır.
+__attribute__((constructor (102))) void baslayabilir_misin(void); // Programın başında main'den önce çalıştır.
 __attribute__((destructor)) void bitir(void); // Programın sonunda main'den çıkınca çalıştır.s
 
 void basla(void) {
@@ -153,7 +153,7 @@ int main(void)
 {
   uni_t a1;
   uni b1;
-  printf("sizeof(a1) = %d \t sizeof(b1) = %d\n", sizeof(a1), sizeof(b1));
+  printf("sizeof(a1) = %ld \t sizeof(b1) = %ld\n", sizeof(a1), sizeof(b1));
 
   int i;
 
@@ -223,8 +223,6 @@ int main(void)
   printf("Transposed Matrix:\n");
   print_matrix(m8, m1_col_count, m2_row_count);
 
-
-  int a[] = {1, 1, 2, 3};
   printf("Fib: %lld\nFibo: %lld\nFibonacci: %lld\n", fib(50), fibo(50), __fibo__(50));
 
   return 0;
