@@ -4,3 +4,7 @@
 
 *.a
 *.o
+
+.vscode
+*/.vscode
+
