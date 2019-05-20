@@ -16,12 +16,6 @@ test: src/libmatarith.a
 	$(CC) -o $(MAT_EXEC)     $(ARG_LIBDIR) test/matrix_test.c -lmatarith
 	$(CC) -o $(HANOI_EXEC)   $(ARG_LIBDIR) test/hanoi_test.c  -lmatarith
 	$(CC) -o $(STACK_EXEC)   $(ARG_LIBDIR) test/stack_test.c  -lmatarith
-
-src/*.o : src/*.c
-	$(CC) -c $< -o $@
-
-run: lib test
-	./$(EXEC)
-
+	
 clean:
 	@rm -f src/*.o src/*.a $(HANOI_EXEC) $(MAT_EXEC) $(STACK_EXEC) 
